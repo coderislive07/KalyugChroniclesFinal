@@ -1,0 +1,206 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html,body{
+	overflow-x:hidden;
+}
+
+#home{
+	background-image: url('./assets/hero-bg.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	
+}
+
+#face{
+	font-family: 'Arya';
+}
+
+
+
+
+
+@layer utilities {
+	html::-webkit-scrollbar {
+		width: 0px;
+		height: 0px;
+	}
+	html {
+		scroll-behavior: smooth;
+	}
+}
+
+
+
+body {
+	background-color: black;
+	font-family: 'MyCustomFont';
+	
+}
+.scroll-remove::-webkit-scrollbar {
+	display: none;
+}
+.scroll-remove {
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+}
+.swiper-wrapper{
+	display:flex;
+	align-items:flex-start;
+}
+
+.blob{
+	border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%;
+	animation: morph 3.5s linear infinite;
+	border:.1px solid black;
+  }
+  @keyframes morph{
+			  0%, 100%{
+				   border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%;
+				   
+			  }
+			  33%{
+				   border-radius:
+				   72% 28% 48% 48% / 28% 28% 72% 72%;
+				  
+			  }
+			  66%{
+				   border-radius:
+				   100% 56% 56% 100% / 100% 100% 56% 56%;
+				   
+			  }
+		 }
+
+		  .modal__bg {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			background: rgba(28, 28, 28, 0.19);
+			backdrop-filter: blur(6px);
+			opacity: 1;
+			animation-timing-function: ease-out;
+			animation-duration: 1s;
+			animation-name: modal-video;
+			-webkit-transition: opacity 0.3s ease-out;
+			-moz-transition: opacity 0.3s ease-out;
+			-ms-transition: opacity 0.3s ease-out;
+			-o-transition: opacity 0.3s ease-out;
+			transition: opacity 0.3s ease-out;
+			z-index: 100;
+			display: flex;
+			
+			align-items: center;
+			justify-content: center;
+		  }
+		  
+		  .modal__align {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+		  }
+		  
+		  .modal__content {
+			width: 100vw;
+			height: 100vh;
+			box-shadow: 0px 100px 80px rgba(184, 184, 184, 0.07),
+			  0px 25.8162px 19px 4px rgba(178, 178, 178, 0.0456112),
+			  0px 7.779px 7.30492px rgba(0, 0, 0, 0.035),
+			  0px 1.48838px 2.0843px rgba(0, 0, 0, 0.0243888);
+			border-radius: 20px;
+			background: transparent;
+			color: #000;
+			margin: 4rem 4rem;
+			display: flex;
+			
+			align-items: center;
+			justify-content: center;
+		  }
+		  
+		  .modal__close {
+			background-color: white;
+			border-radius: 50%;
+			cursor: pointer;
+			position: absolute;
+			bottom: 50px;
+			width: 36px;
+			height: 36px;
+			padding: 0;
+			z-index: 1302;
+			top:1rem;
+			right:1rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		  }
+		  
+		  .modal__video-align {
+			display: flex;
+			position: relative;
+			align-items: center;
+			justify-content: center;
+			
+		  }
+		  
+		  .modal__video-style {
+            width: 100vw;
+			height: 100vh;
+			z-index: 100;
+		  }
+		  
+		  .modal__spinner {
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		  }
+		  
+		  .modal__spinner {
+			
+			font-size: 40px;
+			color: #1b6aae;
+			transform-origin: center;
+		  }
+		  
+		  @keyframes spin {
+			0% {
+			  transform: rotate3d(0deg);
+			}
+			100% {
+			  transform: rotate3d(360deg);
+			}
+		  }
+		  
+		  @media screen and (max-width: 800px) {
+			.modal__content {
+			  margin: 0rem 1rem;
+			  width: 100%;
+			}
+			.modal__video-style {
+			  width: 100%;
+			}
+		  }
+		  
+		  @media screen and (max-width: 499px) {
+			.star {
+				display: none;
+			}
+			.gif {
+				width: 80%;
+				margin-right: 80px;
+			}
+			.modal__content {
+			  background: transparent;
+			  height: auto;
+			}
+			.modal__video-align {
+			  bottom: 0px;
+			}
+			.modal__video-style {
+			  height: auto;
+			}
+		  }
+		  
