@@ -61,9 +61,9 @@ function AppContent() {
   const mainContent = (
     <>
       <HeroPage />
-      <Overview />
       <Prizes />
       <OurTeam />
+      <Overview />
       <Socials />
       <Footer />
     </>

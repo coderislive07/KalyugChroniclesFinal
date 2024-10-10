@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import { HashLink } from "react-router-hash-link";
 import { motion } from "framer-motion";
 import logo from "../assets/favicon.png";
+import cbsLogo from "../assets/CBS-White.png";
 import { useAppStore } from "../store";
 import ninja from "../assets/ninja.jpg";
 import { signOut } from "firebase/auth";
@@ -46,8 +47,10 @@ export default function Header() {
           <LoadingBar color="#EA2121" ref={loadingBarRef} />
       <nav className="container mx-auto px-2 sm:px-4 py-4 flex justify-between items-center">
         <HashLink smooth to="/#home" className="flex items-center space-x-2">
+          <img src={cbsLogo} alt="Logo" className="w-18 h-16" />
           <img src={logo} alt="Logo" className="w-16 h-16" />
         </HashLink>
+
         {/* Desktop Menu */}
         <div className="hidden lg:flex space-x-8 items-center">
           {menuItems.map((item, index) => (

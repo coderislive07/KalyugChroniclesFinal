@@ -178,7 +178,7 @@ export default function HeroPage() {
       {showConfetti && <Confetti width={width} height={height} />}
 
       <Header />
-      <div id="hero" className="flex items-center justify-center py-8 w-full h-screen">
+      <div id="hero" className="flex items-center justify-center py-8 w-full lg:h-screen sm:h-[100vh]">
         <div className="flex items-center justify-center flex-col max-w-[95%] h-full w-full px-4 md:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-center flex-col sm:flex-row w-full gap-6 md:gap-12 h-full">
             <div className="flex flex-col items-center justify-center w-full md:w-[50%] text-center">
@@ -200,11 +200,11 @@ export default function HeroPage() {
             </div>
           </div>
           <div className=" 2xl:[-65vw] flex justify-center gap-x-2   mt-28 ">
-            <Link to="https://forms.gle/1uFk8aNu9Yk3hefq7" className="bg-[#311207] transition duration-200 ease-in-out rounded-full p-2 ">
-          <button type="submit" className="text-white rounded-full text-xs font-black text-center px-12 lg:px-20">Register</button>
+            <Link to="https://forms.gle/1uFk8aNu9Yk3hefq7" className="bg-[#311207] hover:bg-[#f2cc81] hover:shadow-lg transition duration-200 ease-in-out rounded-full p-2 ">
+          <button type="submit" className="text-[#f2cc81] hover:text-[#311207] rounded-full text-m font-black text-center px-12 lg:px-20">Register</button>
             </Link>
-            <a href={pdf} download="rulebook" className="bg-[#311207] transition duration-200 ease-in-out rounded-full p-2  ">
-              <button type="submit" className="text-white rounded-full text-xs font-black text-center px-12 lg:px-20 whitespace-nowrap">Rule Book</button>
+            <a href={pdf} download="rulebook" className="bg-[#311207] hover:bg-[#f2cc81] transition duration-200 ease-in-out rounded-full p-2  ">
+              <button type="submit" className="text-[#f2cc81] hover:text-[#311207] rounded-full text-m font-black text-center px-12 lg:px-20 whitespace-nowrap">Rule Book</button>
             </a>
           </div>
 

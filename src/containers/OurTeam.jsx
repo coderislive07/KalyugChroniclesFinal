@@ -154,7 +154,7 @@ export default function OurTeam(){
 
   const ImageCard = ({ src, alt }) => (
     <div 
-      className="group relative overflow-hidden border-2 border-gray-300 rounded-2xl bg-gradient-to-br from-purple-600 to-purple-900 shadow-lg transition-all duration-300 hover:shadow-xl hover:from-purple-500 hover:to-purple-800"
+      className="rounded-xl group relative overflow-hidden cursor-pointer"
       onClick={() => openImage(src)} // Added click function to open the image
     >
       <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/70 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
@@ -170,15 +170,15 @@ export default function OurTeam(){
   )
 
   return (
-    <section className="w-full min-h-screen bg-black p-16" id="team">
+    <section className="w-full min-h-screen bg-[#311207] p-16" id="team">
       {showConfetti && <Confetti width={width} height={height} />}
       <div className="container mx-auto px-4">
         <div className="mb-12">
-          <h1 className="text-[2rem] xs:text-[2.7rem] sm:text-[4rem] md:text-[5rem] lg:text-8xl xl:text-9xl 2xl:text-[140px] sm:leading-tight text-transparent bg-clip-text animate-bounce bg-[#f2cc81] ">
+          <h1 className="text-[2rem] xs:text-[2.7rem] sm:text-[4rem] md:text-[5rem] lg:text-8xl xl:text-9xl 2xl:text-[140px] sm:leading-tight text-transparent bg-clip-text font-extrabold bg-[#f2cc81] ">
             Event Photos <span className="text-[#f2cc81]"></span>
           </h1>
         </div>
-        <div className='hidden md:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 items-center justify-center w-full'>
+        <div className='hidden md:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 items-center justify-center w-full h-screen'>
           <ImageCard src={person6} alt="Event photo 1" />
           <ImageCard src={person1} alt="Event photo 2" />
           <ImageCard src={person5} alt="Event photo 3" />
