@@ -123,8 +123,8 @@ export default function Socials(){
    {showConfetti && <Confetti width={width} height={height} />}
       <div className="w-full h-full flex items-start justify-start flex-col p-6">
         <div className="flex items-center justify-start">
-          <h1 className="text-[2rem] xs:text-[2.7rem] sm:text-[4rem] md:text-[5rem] lg:text-8xl xl:text-9xl 2xl:text-[140px] sm:leading-tight text-transparent bg-clip-text animate-bounce bg-[#f2cc81] ">
-            Socials <span className="text-[#f2cc81]" onClick={handleClick}>.</span>
+          <h1 className="text-[2rem] xs:text-[2.7rem] sm:text-[4rem] md:text-[5rem] lg:text-8xl xl:text-9xl 2xl:text-[140px] font-extrabold sm:leading-tight text-transparent bg-clip-text bg-[#f2cc81] ">
+            Socials
           </h1>
         </div>
         <div className="flex md:items-start justify-center  lg:flex-row flex-col py-6 mt-12 w-full h-full">
