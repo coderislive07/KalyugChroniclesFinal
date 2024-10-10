@@ -239,7 +239,7 @@ export default function Prizes(){
 
 {/* Section 3: Sponsors */}
 <section className="w-screen px-4 sm:px-8 md:px-16 lg:px-32 relative h-auto bg-[#311207]">
-  <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-[#f2cc81] mt-5 text-center">
+  <h1 className="text-[2rem] xs:text-[2.7rem] sm:text-[4rem] md:text-[5rem] lg:text-8xl xl:text-9xl 2xl:text-[140px] sm:leading-tight text-transparent bg-clip-text font-extrabold bg-[#f2cc81] ">
     Sponsors
   </h1>
 
@@ -248,23 +248,17 @@ export default function Prizes(){
       {[koffehouse, code360, keventers].map((sponsor, index) => (
         <div 
           key={index} 
-          className="flex items-center justify-center bg-gradient-to-r from-[#f2cc81] to-[#f2cc81] rounded-2xl p-2 sm:p-4 md:p-6 lg:p-8 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6"
+          className="flex items-center justify-center rounded-2xl p-2 sm:p-4 md:p-6 lg:p-8 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6"
         >
           <img 
             src={sponsor} 
             alt={`sponsor-${index}`} 
-            className="h-20 sm:h-24 md:h-28 lg:h-32 w-full object-contain"
+            className="h-20 sm:h-24 md:h-28 lg:h-72 w-full object-contain"
           />
         </div>
       ))}
     </div>
   </div>
-
-
-
-
-
-
         <AnimatePresence>
           {showEasterEggPopup && (
             <motion.div
