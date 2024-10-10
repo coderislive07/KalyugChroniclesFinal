@@ -182,7 +182,7 @@ export default function HeroPage() {
         <div className="flex items-center justify-center flex-col max-w-[95%] h-full w-full px-4 md:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-center flex-col sm:flex-row w-full gap-6 md:gap-12 h-full">
             <div className="flex flex-col items-center justify-center w-full md:w-[50%] text-center">
-              <h1 ref={headingRef} className="text-[5rem] xs:text-[4rem] sm:text-[4rem] md:text-[6rem] lg:text-[8rem] font-semibold sm:leading-tight text-[#311207]">
+              <h1 ref={headingRef} className="text-[3rem] xs:text-[3rem] sm:text-[4rem] md:text-[6rem] lg:text-[8rem] font-semibold sm:leading-tight text-[#311207]">
                 Kalyug Chronicles
               </h1>
               <div className="hidden text-white">

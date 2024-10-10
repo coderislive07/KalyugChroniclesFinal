@@ -122,11 +122,11 @@ export default function Socials(){
     <section className="w-screen h-full p-16 bg-[#311207]" id="socials">
    {showConfetti && <Confetti width={width} height={height} />}
       <div className="w-full h-full flex items-start justify-start flex-col p-6">
-        <div className="flex items-center justify-start">
-          <h1 className="text-[2rem] xs:text-[2.7rem] sm:text-[4rem] md:text-[5rem] lg:text-8xl xl:text-9xl 2xl:text-[140px] font-extrabold sm:leading-tight text-transparent bg-clip-text bg-[#f2cc81] ">
-            Socials
-          </h1>
-        </div>
+      <div className="flex items-center justify-start">
+                <h1 className="text-[2rem] font-bold xs:text-[2.7rem] sm:text-[4rem] md:text-[5rem] lg:text-8xl xl:text-9xl 2xl:text-[140px] sm:leading-tight text-transparent bg-clip-text bg-[#f2cc81] ">
+                  Socials <span className="text-[#f2cc81]"></span>
+                </h1>
+              </div>
         <div className="flex md:items-start justify-center  lg:flex-row flex-col py-6 mt-12 w-full h-full">
           <div className="flex items-center s:justify-start justify-center  lg:justify-center gap-6 flex-1 flex-row p-2 w-full h-full">
             <Link
