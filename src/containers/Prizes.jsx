@@ -209,8 +209,7 @@ export default function Prizes(){
       </section>
 
       {/* Section 2: Event Title */}
-      {/* Section 2: Event Title */}
-<section className="w-screen h-auto sm:h-screen bg-[#311207]">
+<section className="w-screen h-auto bg-[#311207]">
   <div className="w-full flex items-center justify-center p-6 lg:p-8">
     <div className="w-full flex items-start justify-center flex-col md:flex-row p-6 md:p-8 lg:p-10 2xl:p-12 my-6">
       <div className="flex items-center bg-[#000000] justify-center p-8 sm:py-16 w-full relative rounded-3xl shadow-2xl">
@@ -238,27 +237,32 @@ export default function Prizes(){
 </section>
 
 {/* Section 3: Sponsors */}
-<section className="w-screen px-4 sm:px-8 md:px-16 lg:px-32 relative h-auto bg-[#311207]">
-  <h1 className="text-[2rem] xs:text-[2.7rem] sm:text-[4rem] md:text-[5rem] lg:text-8xl xl:text-9xl 2xl:text-[140px] sm:leading-tight text-transparent bg-clip-text font-extrabold bg-[#f2cc81] ">
-    Sponsors
-  </h1>
+<section className="w-screen px-4 xs:px-10 sm:px-12 md:px-16 lg:px-32 relative h-auto bg-[#311207]">
+  {/* Title */}
+  <div className="flex items-center justify-start py-4 lg:py-8">
+    <h1 className="text-[2rem] font-bold xs:text-[2.7rem] sm:text-[4rem] md:text-[5rem] lg:text-8xl xl:text-9xl 2xl:text-[140px] sm:leading-tight text-transparent bg-clip-text bg-[#f2cc81]">
+      Sponsors <span className="text-[#f2cc81]"></span>
+    </h1>
+  </div>
 
-  <div className="md:h-auto h-full flex items-center justify-center w-full py-4">
-    <div className="flex flex-wrap justify-around gap-6 md:gap-8 lg:gap-10 px-4">
+  {/* Sponsor Logos */}
+  <div className="md:h-auto h-full flex items-center justify-center w-full py-4 lg:py-8">
+    <div className="flex flex-wrap justify-around gap-6 sm:gap-8 md:gap-10 lg:gap-12 px-4">
       {[koffehouse, code360, keventers].map((sponsor, index) => (
         <div 
           key={index} 
-          className="flex items-center justify-center rounded-2xl p-2 sm:p-4 md:p-6 lg:p-8 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6"
+          className="flex items-center justify-center rounded-2xl p-2 sm:p-4 md:p-6 lg:p-8 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5"
         >
           <img 
             src={sponsor} 
             alt={`sponsor-${index}`} 
-            className="h-20 sm:h-24 md:h-28 lg:h-72 w-full object-contain"
+            className="h-24 xs:h-28 sm:h-32 md:h-40 lg:h-80 w-full object-contain"
           />
         </div>
       ))}
     </div>
   </div>
+
         <AnimatePresence>
           {showEasterEggPopup && (
             <motion.div
