@@ -14,6 +14,7 @@ import Overview from "./containers/Overview";
 import Prizes from "./containers/Prizes";
 import Socials from "./containers/Socials";
 import Login from "./Pages/login";
+import Rahasya from "./Pages/Rahasya";
 
 function AppContent() {
   const { setUserInfo } = useAppStore();
@@ -116,6 +117,7 @@ function AppContent() {
             <Route path="/login" element={<Login />} />
             <Route path="/" element={mainContent} />
             <Route path='/Contact'element={<ContactPage/>}/>
+            <Route path='/rahasya'element={<Rahasya/>}/>
           </Routes>
         </div>
       )}
