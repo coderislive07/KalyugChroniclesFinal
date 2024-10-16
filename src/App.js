@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import AnimatedCursor from "react-animated-cursor";
-import star2 from './assets/star2.svg'
 import { auth } from "./firebaseconfig";
 import { useAppStore } from "./store";
 import  ContactPage  from '../src/Pages/Contact'
@@ -14,6 +13,8 @@ import Overview from "./containers/Overview";
 import Prizes from "./containers/Prizes";
 import Socials from "./containers/Socials";
 import Login from "./Pages/login";
+
+const star2 = 'https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/star2.svg';
 
 function AppContent() {
   const { setUserInfo } = useAppStore();

@@ -2,8 +2,6 @@ import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { IoCloseOutline } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
-import instagram from "../assets/instagram.jpeg";
-import linkedin from "../assets/linkedin.jpeg";
 import axios from "axios";
 import { useAppStore } from "../store";
 import { useWindowSize } from "react-use";
@@ -13,7 +11,8 @@ import { auth , db } from "../firebaseconfig";
 
 import Confetti from 'react-confetti'
 
-
+const instagram  = "https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/instagram.jpeg"
+const linkedin = "https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/linkedin.jpeg"
 
 const API_BASE_URL = "https://api.w16manik.ninja/kalyug";
 

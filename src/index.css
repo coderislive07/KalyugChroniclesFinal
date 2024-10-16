@@ -6,7 +6,7 @@ html,body{
 }
 
 #home{
-	background-image: url('./assets/hero-bg.jpg');
+	background-image: url('https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/hero-bg.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;

@@ -1,9 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { IoCloseOutline } from "react-icons/io5";
-import bg from '../assets/bgflip.jpg';
-import play from '../assets/play_2.svg';
-import star2 from '../assets/star2.svg';
 import axios from "axios";
 import { useAppStore } from "../store";
 import { signInWithPopup , GoogleAuthProvider } from "firebase/auth";
@@ -13,6 +10,9 @@ import Confetti from 'react-confetti'
 import { useNavigate } from "react-router-dom";
 import { ref, set, get , remove } from "firebase/database";
 
+const bg = 'https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/bgflip.jpg';
+const play = 'https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/play_2.svg';
+const star2 = 'https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/star2.svg';
 
 const API_BASE_URL = "https://api.w16manik.ninja/kalyug";
 

@@ -1,18 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { IoCloseOutline } from "react-icons/io5";
-
-import vector from "../assets/Vector.svg";
-import star2 from "../assets/star2.svg";
-import cbs from "../assets/sponser_1.png";
-import gmc from "../assets/sponser_2.png";
-import selle from "../assets/sponser_3.png";
-import spn5 from "../assets/sponser_5.png";
-import ccsc from "../assets/sponser_4.png";
-import koffehouse from "../assets/koffehouse.png"
-import code360 from "../assets/code360.png"
-import keventers from "../assets/keventers.png"
-import { ref, set, get , remove } from "firebase/database";
+import { ref, set, get, remove } from "firebase/database";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { EffectFade, Autoplay, Navigation, Pagination } from "swiper";
 import "swiper/css";
@@ -20,18 +9,28 @@ import axios from "axios";
 import { useAppStore } from "../store";
 import { useNavigate } from "react-router-dom";
 import { useWindowSize } from "react-use";
-import { signInWithPopup , GoogleAuthProvider } from "firebase/auth";
-import { auth , db } from "../firebaseconfig";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { auth, db } from "../firebaseconfig";
 
 import Confetti from 'react-confetti'
 
+const vector = "https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/Vector.svg";
+const star2 = "https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/star2.svg";
+const cbs = "https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/sponser_1.png";
+const gmc = "https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/sponser_2.png";
+const selle = "https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/sponser_3.png";
+const spn5 = "https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/sponser_5.png";
+const ccsc = "https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/sponser_4.png";
+const koffehouse = "https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/koffehouse.png"
+const code360 = "https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/code360.png"
+const keventers = "https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/keventers.png"
 
 
 const API_BASE_URL = "https://api.w16manik.ninja/kalyug";
 
-export default function Prizes(){
+export default function Prizes() {
   SwiperCore.use([Autoplay, Navigation, Pagination]);
-  const provider= new GoogleAuthProvider();
+  const provider = new GoogleAuthProvider();
   const navigate = useNavigate();
   const { userInfo, setUserInfo } = useAppStore();
   const { width, height } = useWindowSize();
@@ -41,7 +40,7 @@ export default function Prizes(){
   const headingRef = useRef(null);
   const subHeadingRef = useRef(null);
   const typedRef = useRef(null);
-  
+
   const [showConfetti, setShowConfetti] = useState(false);
   const [showEasterEggPopup, setShowEasterEggPopup] = useState(false);
   const [currentEasterEgg, setCurrentEasterEgg] = useState(null);
@@ -63,10 +62,10 @@ export default function Prizes(){
       const easterEggRef = ref(db, `easterEggs/${easterEggKey}`);
       const easterEggSnapshot = await get(easterEggRef);
 
-    
-      
 
-  
+
+
+
 
       await set(userRef, {
         ...userData,
@@ -78,12 +77,11 @@ export default function Prizes(){
         foundAt: new Date().toISOString()
       });
 
-    
+
       if (userData[easterEggKey]) {
         setShowEasterEggPopup(false)
       }
-      else
-      {
+      else {
         setShowEasterEggPopup(true)
         setShowConfetti(true);
         setTimeout(() => {
@@ -140,6 +138,18 @@ export default function Prizes(){
 
   return (
     <>
+      <div className="w-auto h-[40vh] my-5 bg-[#311207] mx-auto flex justify-center items-center flex-col text-4xl font-bold">
+        <iframe
+          src="https://www.youtube.com/embed/mYUyBL-T6XY?si=wUtx3T4qnXfW5Suk?autoplay=1&mute=1&controls=1&enablejsapi=1"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture autoplay; encrypted-media"
+          allowFullScreen
+          referrerPolicy="strict-origin-when-cross-origin"
+          className="h-full w-full"
+        >
+        </iframe>
+      </div>
       {/* Section 1: Prizes Section */}
       <section className="w-screen h-full bg-[#311207]" id="prizes">
         {showConfetti && <Confetti width={width} height={height} />}
@@ -209,59 +219,59 @@ export default function Prizes(){
       </section>
 
       {/* Section 2: Event Title */}
-<section className="w-screen h-auto bg-[#311207]">
-  <div className="w-full flex items-center justify-center p-6 lg:p-8">
-    <div className="w-full flex items-start justify-center flex-col md:flex-row p-6 md:p-8 lg:p-10 2xl:p-12 my-6">
-      <div className="flex items-center bg-[#000000] justify-center p-8 sm:py-16 w-full relative rounded-3xl shadow-2xl">
-        <div className="flex flex-col items-center justify-center w-full max-w-7xl">
-          <p
-            id="face"
-            className="text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-[#f2cc81] p-2"
-          >
-            ।।धर्मस्य विजयः सदा निश्चितः।।
-          </p>
-          <img
-            src={vector}
-            alt="vector"
-            className="absolute top-0 left-0 w-12 h-12 sm:h-20 sm:w-20"
-          />
-          <img
-            src={vector}
-            alt="vector"
-            className="absolute bottom-0 right-0 w-12 h-12 sm:h-20 sm:w-20"
-          />
+      <section className="w-screen h-auto bg-[#311207]">
+        <div className="w-full flex items-center justify-center p-6 lg:p-8">
+          <div className="w-full flex items-start justify-center flex-col md:flex-row p-6 md:p-8 lg:p-10 2xl:p-12 my-6">
+            <div className="flex items-center bg-[#000000] justify-center p-8 sm:py-16 w-full relative rounded-3xl shadow-2xl">
+              <div className="flex flex-col items-center justify-center w-full max-w-7xl">
+                <p
+                  id="face"
+                  className="text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-[#f2cc81] p-2"
+                >
+                  ।।धर्मस्य विजयः सदा निश्चितः।।
+                </p>
+                <img
+                  src={vector}
+                  alt="vector"
+                  className="absolute top-0 left-0 w-12 h-12 sm:h-20 sm:w-20"
+                />
+                <img
+                  src={vector}
+                  alt="vector"
+                  className="absolute bottom-0 right-0 w-12 h-12 sm:h-20 sm:w-20"
+                />
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
-{/* Section 3: Sponsors */}
-<section className="w-screen px-4 xs:px-10 sm:px-12 md:px-16 lg:px-32 relative h-auto bg-[#311207]">
-  {/* Title */}
-  <div className="flex items-center justify-start py-4 lg:py-8">
-    <h1 className="text-[2rem] font-bold xs:text-[2.7rem] sm:text-[4rem] md:text-[5rem] lg:text-8xl xl:text-9xl 2xl:text-[140px] sm:leading-tight text-transparent bg-clip-text bg-[#f2cc81]">
-      Sponsors <span className="text-[#f2cc81]"></span>
-    </h1>
-  </div>
-
-  {/* Sponsor Logos */}
-  <div className="md:h-auto h-full flex items-center justify-center w-full py-4 lg:py-8">
-    <div className="flex flex-wrap justify-around gap-6 sm:gap-8 md:gap-10 lg:gap-12 px-4">
-      {[koffehouse, code360, keventers].map((sponsor, index) => (
-        <div 
-          key={index} 
-          className="flex items-center justify-center rounded-2xl p-2 sm:p-4 md:p-6 lg:p-8 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5"
-        >
-          <img 
-            src={sponsor} 
-            alt={`sponsor-${index}`} 
-            className="h-24 xs:h-28 sm:h-32 md:h-40 lg:h-80 w-full object-contain"
-          />
+      {/* Section 3: Sponsors */}
+      <section className="w-screen px-4 xs:px-10 sm:px-12 md:px-16 lg:px-32 relative h-auto bg-[#311207]">
+        {/* Title */}
+        <div className="flex items-center justify-start py-4 lg:py-8">
+          <h1 className="text-[2rem] font-bold xs:text-[2.7rem] sm:text-[4rem] md:text-[5rem] lg:text-8xl xl:text-9xl 2xl:text-[140px] sm:leading-tight text-transparent bg-clip-text bg-[#f2cc81]">
+            Sponsors <span className="text-[#f2cc81]"></span>
+          </h1>
         </div>
-      ))}
-    </div>
-  </div>
+
+        {/* Sponsor Logos */}
+        <div className="md:h-auto h-full flex items-center justify-center w-full py-4 lg:py-8">
+          <div className="flex flex-wrap justify-around gap-6 sm:gap-8 md:gap-10 lg:gap-12 px-4">
+            {[koffehouse, code360, keventers].map((sponsor, index) => (
+              <div
+                key={index}
+                className="flex items-center justify-center rounded-2xl p-2 sm:p-4 md:p-6 lg:p-8 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5"
+              >
+                <img
+                  src={sponsor}
+                  alt={`sponsor-${index}`}
+                  className="h-24 xs:h-28 sm:h-32 md:h-40 lg:h-80 w-full object-contain"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
 
         <AnimatePresence>
           {showEasterEggPopup && (
@@ -372,4 +382,5 @@ export default function Prizes(){
         </AnimatePresence>
       </section>
     </>
-  );}
+  );
+}

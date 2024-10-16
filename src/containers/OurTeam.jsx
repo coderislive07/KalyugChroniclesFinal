@@ -1,12 +1,6 @@
 import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { IoCloseOutline } from "react-icons/io5";
-import person1 from '../assets/person1_rep.jpg';
-import person2 from '../assets/person2_rep.jpg';
-import person3 from '../assets/person3_rep.jpg';
-import person4 from '../assets/person4_rep.jpg';
-import person5 from '../assets/person5_rep.jpg';
-import person6 from '../assets/person6_rep.jpg';
 import Confetti from 'react-confetti';
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { EffectFade, Autoplay, Navigation, Pagination } from "swiper";
@@ -14,6 +8,13 @@ import "swiper/css";
 import { useAppStore } from "../store";
 import { useNavigate } from "react-router-dom";
 import { useWindowSize } from "react-use";
+
+const person1 = 'https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/person1_rep.jpg';
+const person2 = 'https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/person2_rep.jpg';
+const person3 = 'https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/person3_rep.jpg';
+const person4 = 'https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/person4_rep.jpg';
+const person5 = 'https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/person5_rep.jpg';
+const person6 = 'https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/person6_rep.jpg';
 
 SwiperCore.use([Autoplay, Navigation, Pagination]);
 

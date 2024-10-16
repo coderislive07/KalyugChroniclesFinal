@@ -1,14 +1,15 @@
 import React, { useState, useRef } from "react";
 import { HashLink } from "react-router-hash-link";
 import { motion } from "framer-motion";
-import logo from "../assets/favicon.png";
-import cbsLogo from "../assets/CBS-White.png";
 import { useAppStore } from "../store";
-import ninja from "../assets/ninja.jpg";
 import { signOut } from "firebase/auth";
 import LoadingBar from "react-top-loading-bar";
 import { auth } from "../firebaseconfig";
 import { useNavigate } from "react-router";
+
+const logo = "https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/favicon.png";
+const cbsLogo = "https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/CBS-White.png";
+const ninja = "https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/ninja.jpg";
 
 export default function Header() {
   const { userInfo, setUserInfo } = useAppStore();

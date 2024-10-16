@@ -7,22 +7,23 @@ import Confetti from "react-confetti";
 import { IoCloseOutline } from "react-icons/io5";
 import { BiLoaderAlt } from "react-icons/bi";
 import Header from "../components/Header";
-import play from "../assets/play.svg";
-import star from "../assets/star.svg";
-import circle from "../assets/circle.svg";
-import linkedin from "../assets/linkedin.svg";
-import instagram from "../assets/instagram.svg";
-import twitter from "../assets/twitter.svg";
-import line from "../assets/Line.svg";
-import video from "../assets/render.mp4";
-import pdf from "../assets/rulebook.pdf";
 import { Link, useLocation } from "react-router-dom";
-import herobg from '../assets/hero-bg.jpg';
 import { useNavigate } from "react-router-dom";
 import { useAppStore } from "../store";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { auth, db } from "../firebaseconfig";
 import { ref, set, get , remove } from "firebase/database";
+
+const play = "https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/play.svg";
+const star = "https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/star.svg";
+const circle = "https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/circle.svg";
+const linkedin = "https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/linkedin.svg";
+const instagram = "https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/instagram.svg";
+const twitter = "https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/twitter.svg";
+const line = "https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/Line.svg";
+const video = "https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/render.mp4";
+const pdf = "https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/rulebook.pdf";
+
 
 export default function HeroPage() {
   const location = useLocation();

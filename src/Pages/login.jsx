@@ -3,7 +3,6 @@ import { ArrowLeft, User } from "lucide-react";
 import GoogleButton from "react-google-button";
 import { useNavigate } from "react-router-dom";
 import LoadingBar from "react-top-loading-bar";
-import gif from "../assets/kalyugteaserg.gif";
 import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
@@ -24,6 +23,7 @@ export default function Login() {
   const loadingBarRef = useRef(null);
   const [loginError, setLoginError] = useState(null);
   const [signupError, setSignupError] = useState(null);
+  const gif = "https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/kalyugteaserg.gif";
   const toggleForm = () => {
     loadingBarRef.current.continuousStart();
     setTimeout(() => {

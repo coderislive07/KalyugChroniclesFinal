@@ -1,9 +1,9 @@
 import React from "react";
-import logo from "../assets/favicon.png";
-import line from "../assets/line2.svg";
-import pdf from '../assets/rulebook.pdf'
 import {Link} from 'react-router-dom'
-import cbsLogo from "../assets/CBS-White.png";
+const cbsLogo = "https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/CBS-White.png";
+const logo = "https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/favicon.png";
+const line = "https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/line2.svg";
+const pdf = 'https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/rulebook.pdf'
 
 const Footer = () => {
   return (
