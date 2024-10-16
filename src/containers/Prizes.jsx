@@ -138,18 +138,21 @@ export default function Prizes() {
 
   return (
     <>
-      <div className="w-auto h-[40vh] my-5 bg-[#311207] mx-auto flex justify-center items-center flex-col text-4xl font-bold">
+      <div className="max-w-4xl mx-auto px-4 py-8 bg-gradient-to-b from-[#311207] to-[#1a0a04]">
+      <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#f2cc81] mb-4 text-center">
+        Watch Live
+      </h2>
+      <div className="relative w-full pb-[56.25%] bg-black rounded-lg overflow-hidden shadow-lg">
         <iframe
           src="https://www.youtube.com/embed/mYUyBL-T6XY?si=wUtx3T4qnXfW5Suk?autoplay=1&mute=1&controls=1&enablejsapi=1"
           title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture autoplay; encrypted-media"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
           referrerPolicy="strict-origin-when-cross-origin"
-          className="h-full w-full"
-        >
-        </iframe>
+          className="absolute top-0 left-0 w-full h-full"
+        />
       </div>
+    </div>
       {/* Section 1: Prizes Section */}
       <section className="w-screen h-full bg-[#311207]" id="prizes">
         {showConfetti && <Confetti width={width} height={height} />}
