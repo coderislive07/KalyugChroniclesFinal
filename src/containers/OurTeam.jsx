@@ -34,10 +34,13 @@ export default function OurTeam() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [showEasterEggPopup, setShowEasterEggPopup] = useState(false);
   const [currentEasterEgg, setCurrentEasterEgg] = useState(null);
+  const [showAlreadyFoundPopup, setShowAlreadyFoundPopup] = useState(false);
   
   const openImage = (src) => {
     setSelectedImage(src);
     setIsImageOpen(true);
+
+  
   };
 
   const closeImage = () => {
@@ -49,6 +52,7 @@ export default function OurTeam() {
     <div 
       className="rounded-xl group relative overflow-hidden cursor-pointer"
       onClick={() => openImage(src)}
+      
     >
       <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/70 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
       <div className="relative overflow-hidden rounded-xl">
@@ -62,6 +66,7 @@ export default function OurTeam() {
     </div>
   );
   const handleEasterEgg = async (easterEggKey) => {
+    console.log("yes")
     try {
       if (!userInfo) {
         setShowEasterEggPopup(true);
@@ -118,13 +123,20 @@ export default function OurTeam() {
   };
 
   const handleClick = () => {
-    setClickCount((prevCount) => prevCount + 1);
-
-    if (clickCount + 1 === 6) {
-      handleEasterEgg('easter_prizes');
-      setTimeout(() => setClickCount(0), 4321);
-    }
+    console.log("yes")
+    setClickCount((prevCount) => {
+      const newCount = prevCount + 1;
+  
+      if (newCount === 7) { // Show the popup on the 7th click
+        handleEasterEgg('easter_pasteventpics');
+        setTimeout(() => setClickCount(0), 4321); // Reset count after handling
+      }
+  
+      return newCount; // Update clickCount state
+    });
   };
+  
+  
 
   const handleGoogleSignIn = async () => {
     try {
@@ -164,8 +176,8 @@ export default function OurTeam() {
         {/* Grid for larger screens */}
         <div className='hidden md:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 items-center justify-center w-full h-auto'>
           <ImageCard src={person6} alt="Event photo 1" />
-          <ImageCard src={person1} alt="Event photo 2" />
-          <ImageCard onClick={handleClick} src={person5} alt="Event photo 3" />
+          <ImageCard  src={person1} alt="Event photo 2" />
+          <ImageCard  src={person5} alt="Event photo 3" />
           <ImageCard src={person2} alt="Event photo 4" />
           <ImageCard src={person3} alt="Event photo 5" />
           <ImageCard src={person4} alt="Event photo 6" />
@@ -201,8 +213,8 @@ export default function OurTeam() {
       </div>
 
       {/* Code for opening image in full screen */}
-      {isImageOpen && (
-        <div className="fixed z-50 flex items-center justify-center bg-black bg-opacity-75 inset-0">
+      {isImageOpen  && (
+        <div onClick={handleClick} className="fixed z-50 flex items-center justify-center bg-black bg-opacity-75 inset-0">
           <button 
             onClick={closeImage} 
             className="absolute top-4 right-4 font-sans text-white text-2xl bg-black bg-opacity-50 p-2 rounded-full hover:bg-opacity-70 focus:outline-none">
@@ -236,14 +248,87 @@ export default function OurTeam() {
                 Congratulations! 🎉
               </motion.h2>
               <motion.p
-                className="text-lg sm:text-xl mb-4 sm:mb-6 text-[#927908e8] text-center"
+                className="text-lg sm:text-xl mb-4 sm:mb-6 text-[#927908e8]  text-center"
                 initial={{ y: -30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.3 }}
               >
                 You've discovered an Easter egg!
               </motion.p>
+
+              {!userInfo && (
+                <motion.p
+                  className="text-base sm:text-lg mb-6 text-[#927908e8]  text-center"
+                  initial={{ y: -20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.4 }}
+                >
+                  Login to earn your easter points...
+                </motion.p>
+              )}
+
+              <motion.div
+                className="flex flex-row justify-between items-center gap-4"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5 }}
+              >
+                {!userInfo && (
+                  <motion.button
+                    onClick={handleGoogleSignIn}
+                    className="bg-[#927908e8]  text-black px-6 py-3 rounded-full font-semibold text-lg hover:bg-[#00000] transition-colors flex-grow"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Login
+                  </motion.button>
+                )}
+                {userInfo && (
+                  <motion.p
+                    className="text-lg font-semibold text-[#927908e8]  text-center"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.6 }}
+                  >
+                    Points recorded!
+                  </motion.p>
+                )}
+                <motion.button
+                  className="transition-colors p-2 ml-auto text-[#858584]"
+                  whileHover={{ scale: 1.1, rotate: 90 }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={() => setShowEasterEggPopup(false)}
+                >
+                  <IoCloseOutline size={24} />
+                </motion.button>
+              </motion.div>
             </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {showPointsRecordedPopup && (
+          <motion.div
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -50 }}
+            className="fixed top-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-6 py-3 rounded-full z-50"
+          >
+            Points recorded successfully!
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {showAlreadyFoundPopup && (
+          <motion.div
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -50 }}
+            className="fixed top-4 left-1/2 transform -translate-x-1/2 bg-yellow-500 text-white px-6 py-3 rounded-full z-50"
+          >
+            You've already found this Easter egg!
           </motion.div>
         )}
       </AnimatePresence>
