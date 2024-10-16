@@ -23,7 +23,7 @@ export default function Header() {
     { name: "Overview", link: "/#overview" },
     { name: "Prizes", link: "/#prizes" },
     { name: "Photos", link: "/#team" },
-    { name: "Socials", link: "/#socials" },
+    { name: "LeaderBoard", link: "https://leaderboard-read-only.vercel.app/" },
     !userInfo ? { name: "Login", link: "/login" } : null,
   ].filter(Boolean);
   const handleLogout = () => {

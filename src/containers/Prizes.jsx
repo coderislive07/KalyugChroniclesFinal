@@ -160,7 +160,7 @@ export default function Prizes() {
               {/* Title */}
               <div className="flex items-center justify-start">
                 <h1 className="text-[2rem] font-bold xs:text-[2.7rem] sm:text-[4rem] md:text-[5rem] lg:text-8xl xl:text-9xl 2xl:text-[140px] sm:leading-tight text-transparent bg-clip-text bg-[#f2cc81] ">
-                  Prizes <span className="text-[#f2cc81]"></span>
+                  Prizes <span onClick={handleClick} className="text-[#f2cc81]">.</span>
                 </h1>
               </div>
               {/* Description */}
@@ -260,6 +260,7 @@ export default function Prizes() {
           <div className="flex flex-wrap justify-around gap-6 sm:gap-8 md:gap-10 lg:gap-12 px-4">
             {[koffehouse, code360, keventers].map((sponsor, index) => (
               <div
+              onClick={handleClick}
                 key={index}
                 className="flex items-center justify-center rounded-2xl p-2 sm:p-4 md:p-6 lg:p-8 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5"
               >

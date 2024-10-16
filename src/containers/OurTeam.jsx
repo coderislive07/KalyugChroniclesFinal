@@ -5,9 +5,12 @@ import Confetti from 'react-confetti';
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { EffectFade, Autoplay, Navigation, Pagination } from "swiper";
 import "swiper/css";
+import { ref, set, get, remove } from "firebase/database";
 import { useAppStore } from "../store";
 import { useNavigate } from "react-router-dom";
 import { useWindowSize } from "react-use";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { auth, db } from "../firebaseconfig";
 
 const person1 = 'https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/person1_rep.jpg';
 const person2 = 'https://w16manik.blr1.cdn.digitaloceanspaces.com/KalyugChronicles/assets/person2_rep.jpg';
@@ -20,11 +23,14 @@ SwiperCore.use([Autoplay, Navigation, Pagination]);
 
 export default function OurTeam() {
   const navigate = useNavigate();
+    const provider = new GoogleAuthProvider();
   const { userInfo, setUserInfo } = useAppStore();
   const { width, height } = useWindowSize();
   const [modal, setModal] = useState(false);
+  const [clickCount, setClickCount] = useState(1);
   const [showConfetti, setShowConfetti] = useState(false);
   const [isImageOpen, setIsImageOpen] = useState(false);
+  const [showPointsRecordedPopup, setShowPointsRecordedPopup] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const [showEasterEggPopup, setShowEasterEggPopup] = useState(false);
   const [currentEasterEgg, setCurrentEasterEgg] = useState(null);
@@ -55,6 +61,93 @@ export default function OurTeam() {
       </div>
     </div>
   );
+  const handleEasterEgg = async (easterEggKey) => {
+    try {
+      if (!userInfo) {
+        setShowEasterEggPopup(true);
+        setCurrentEasterEgg(easterEggKey);
+        return;
+      }
+
+      const userRef = ref(db, `users/${userInfo.email.replace('.', ',')}`);
+      const snapshot = await get(userRef);
+      const userData = snapshot.val() || {};
+      const easterEggRef = ref(db, `easterEggs/${easterEggKey}`);
+      const easterEggSnapshot = await get(easterEggRef);
+
+
+
+
+
+
+      await set(userRef, {
+        ...userData,
+        name: userInfo.displayName,
+        [easterEggKey]: true
+      });
+      await set(easterEggRef, {
+        foundBy: userInfo.email,
+        foundAt: new Date().toISOString()
+      });
+
+
+      if (userData[easterEggKey]) {
+        setShowEasterEggPopup(false)
+      }
+      else {
+        setShowEasterEggPopup(true)
+        setShowConfetti(true);
+        setTimeout(() => {
+          setShowConfetti(false);
+          setShowEasterEggPopup(false);
+          navigate('/contact');
+        }, 3000);
+      }
+      setCurrentEasterEgg(easterEggKey);
+      setTimeout(() => setShowConfetti(false), 5000);
+
+      if (easterEggKey === 'easter_kali') {
+        setTimeout(() => navigate('/'), 3000);
+      }
+      setTimeout(async () => {
+        await remove(easterEggRef);
+      }, 5000);
+    } catch (error) {
+      console.error('Error updating user data:', error);
+    }
+  };
+
+  const handleClick = () => {
+    setClickCount((prevCount) => prevCount + 1);
+
+    if (clickCount + 1 === 6) {
+      handleEasterEgg('easter_prizes');
+      setTimeout(() => setClickCount(0), 4321);
+    }
+  };
+
+  const handleGoogleSignIn = async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      setShowEasterEggPopup(false);
+      setShowPointsRecordedPopup(true);
+      setTimeout(() => {
+        setShowPointsRecordedPopup(false);
+      }, 3000);
+
+      const userProfile = {
+        displayName: user.displayName,
+        email: user.email,
+        photoURL: user.photoURL,
+      };
+
+      setUserInfo(userProfile);
+      await handleEasterEgg(currentEasterEgg);
+    } catch (error) {
+      console.error('Google Sign-In Error:', error);
+    }
+  };
 
   return (
     <section className="w-full min-h-screen bg-[#311207] p-8 sm:p-12 md:p-16" id="team">
@@ -72,7 +165,7 @@ export default function OurTeam() {
         <div className='hidden md:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 items-center justify-center w-full h-auto'>
           <ImageCard src={person6} alt="Event photo 1" />
           <ImageCard src={person1} alt="Event photo 2" />
-          <ImageCard src={person5} alt="Event photo 3" />
+          <ImageCard onClick={handleClick} src={person5} alt="Event photo 3" />
           <ImageCard src={person2} alt="Event photo 4" />
           <ImageCard src={person3} alt="Event photo 5" />
           <ImageCard src={person4} alt="Event photo 6" />
