@@ -144,7 +144,7 @@ export default function Prizes() {
       </h2>
       <div className="relative w-full pb-[56.25%] bg-black rounded-lg overflow-hidden shadow-lg">
         <iframe
-          src="https://www.youtube.com/embed/mYUyBL-T6XY?si=wUtx3T4qnXfW5Suk?autoplay=1&mute=1&controls=1&enablejsapi=1"
+          src="https://www.youtube.com/embed/c4hdHuqxe20?si=xjFii1vLv-yk9clg?autoplay=1&mute=1&controls=1&enablejsapi=1"
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
